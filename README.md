@@ -1,4 +1,4 @@
-## Payroll Form
+## Payroll Form Calculator
 The project started out as question on the sitepoint forum, which I got involved in.
 
 The forum post can be found here at [sitepoint](https://www.sitepoint.com/community/t/calculation-function-dead-end/352969/64?u=rpg_digital) (my *username* ***rpgdigital***). It subsequently lead to me being commissioned to do the full project.
