@@ -6,4 +6,6 @@ The forum post can be found here at [sitepoint](https://www.sitepoint.com/commun
 ### The task
 The payroll element to the project required that on changing various input fields that a sequence of calculation be performed, updating a column of output fields.
 
-I have recently refactored the code into a cleaner more modular format utilising a more functional and flexible approach to programming.
+I have recently refactored the code into a cleaner modular format utilising a more functional and flexible approach to programming.
+
+[codepen link here](https://rpgdigital.co.uk/development/payroll/index.html)
