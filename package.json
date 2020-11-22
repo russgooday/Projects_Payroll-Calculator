@@ -2,14 +2,25 @@
   "name": "payroll",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "payroll.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack --config webpack.config.js --mode=production",
+    "dev-build": "webpack --config webpack.config.js --mode=development"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "core-js": "^3.6.5",
     "standardx": "^7.0.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.7",
+    "@babel/polyfill": "^7.11.5",
+    "@babel/preset-env": "^7.12.7",
+    "babel-loader": "^8.2.1",
+    "jsinspect": "^0.12.7",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
   }
 }

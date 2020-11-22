@@ -18,11 +18,13 @@ export const hasClass = function (elem, className) {
   return elem.classList.contains(className)
 }
 
+export const hasClassWith = (className) => (elem) => hasClass(elem, className)
+
 export const hasNodeName = function (elem, name) {
   return elem.nodeName && elem.nodeName === name.toUpperCase()
 }
 
-export const debounce = function (func, wait = 200) {
+export const debounce = function (func, wait = 150) {
   let timeout = null
 
   return (...args) => {
