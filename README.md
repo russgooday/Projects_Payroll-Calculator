@@ -8,4 +8,4 @@ The payroll element to the project required that on changing various input field
 
 I have recently refactored the code into a cleaner modular format utilising a more functional and flexible approach to programming.
 
-[codepen link here](https://rpgdigital.co.uk/development/payroll/index.html)
+[codepen link here](https://codepen.io/rpg2019/project/editor/XRLEEY)
