@@ -24,7 +24,7 @@ export const hasNodeName = function (elem, name) {
   return elem.nodeName && elem.nodeName === name.toUpperCase()
 }
 
-export const debounce = function (func, wait = 150) {
+export const debounce = function (func, wait = 200) {
   let timeout = null
 
   return (...args) => {

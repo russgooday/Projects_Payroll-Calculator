@@ -19,8 +19,7 @@ addEvent(document, 'DOMContentLoaded', function () {
 
     /* return form event handler */
     return ({ target, key }) => {
-
-      if (!hasNodeName(target, 'input') || isNaN(key)) return
+      if (!hasNodeName(target, 'input')) return
 
       const currentFieldValues = fields.reduce(mapFieldValue, {})
       const updatedFields = calculateValuesFrom(currentFieldValues)
