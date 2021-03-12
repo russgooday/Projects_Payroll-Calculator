@@ -10,29 +10,32 @@ addEvent(document, 'DOMContentLoaded', function () {
 
   const calculateValuesFrom = pipe(...calculations.map(mergeWith))
 
-  const mapFieldValue = (fields, field) => ({ ...fields, [field.name]: field.value })
-
   const renderFrom = (source, fn = identity) => field => { field.value = fn(source[field.name]) }
 
+  const { fromEntries } = Object
+
   // form event handler
-  const formUpdate = function (fields) {
+  const formUpdate = function (form) {
+
+    const outputs = Array
+      .from(form.elements)
+      .filter(hasClassWith('form-output'))
 
     /* return form event handler */
-    return ({ target, key }) => {
+    return ({ target }) => {
       if (!hasNodeName(target, 'input')) return
 
-      const currentFieldValues = fields.reduce(mapFieldValue, {})
+      const currentFieldValues = fromEntries(new FormData(form))
       const updatedFields = calculateValuesFrom(currentFieldValues)
 
-      fields
-        .filter(hasClassWith('form-output'))
-        .forEach(renderFrom(updatedFields, toCurrency('£')))
+      outputs.forEach(renderFrom(updatedFields, toCurrency('£')))
     }
   }
 
-  const clearForm = function (fields) {
+  const clearForm = function (form) {
     // store defaults in a closure
-    const defaults = fields.reduce(mapFieldValue, {})
+    const defaults = fromEntries(new FormData(form))
+    const fields = Array.from(form.elements)
 
     return function (event) {
       fields.forEach(renderFrom(defaults))
@@ -41,9 +44,7 @@ addEvent(document, 'DOMContentLoaded', function () {
 
   const form = getElem('#payroll-form')
   const reset = getElem('#reset')
-  // Note Babel and IE11 has issues with [...form.elements]
-  const elements = Array.from(form.elements)
 
-  addEvent(form, 'keyup', debounce(formUpdate(elements)))
-  addEvent(reset, 'click', clearForm(elements))
+  addEvent(form, 'keyup', debounce(formUpdate(form)))
+  addEvent(reset, 'click', clearForm(form))
 })
